@@ -33,6 +33,28 @@ import ViewStore from "./pages/Users/ViewStore.jsx";
 import AddMember from "./pages/Members/AddMember.jsx";
 import MemberAdded from "./pages/Members/MemberAdded.jsx";
 import SendWelcomeMessage from "./pages/Members/SendWelcomeMessage.jsx";
+import AddGymStep1 from "./pages/Gym/AddGymStep.jsx";
+import PartnerAddedScreen from "./pages/Gym/PartnerAddedScreen.jsx";
+import GymProfileScreen from "./pages/Gym/GymProfileScreen.jsx";
+import MembershipPlansScreen from "./pages/Gym/MembershipPlansScreen.jsx";
+import CreateMembershipPlanScreen from "./pages/Gym/CreateMembershipPlanScreen.jsx";
+import GymTrainersScreen from "./pages/Gym/GymTrainersScreen.jsx";
+import PlanPublishedScreen from "./pages/Gym/PlanPublishedScreen.jsx";
+import AddTrainerFormScreen from "./pages/Trainer/AddTrainer.jsx";
+import TrainerAddedScreen from "./pages/Trainer/TrainerAddedScreen.jsx";
+import AddStoreStep from "./pages/Store/AddStoreStep.jsx";
+import StoreAddedSucces from "./pages/Store/StoreAddedSucces.jsx";
+import ContentReviewList from "./pages/Review/ContentReviewList.jsx";
+import ContentReviewDetail from "./pages/Review/ContentReviewDetail.jsx";
+import ReportsAnalytics from "./pages/WorkspaceTools/ReportsAnalytics.jsx";
+import FeaturedListings from "./pages/WorkspaceTools/FeaturedListings.jsx";
+import PartnerDirectory from "./pages/WorkspaceTools/PartnerDirectory.jsx";
+import PartnerProfile from "./pages/WorkspaceTools/PartnerProfile.jsx";
+import FeaturedListingDetail from "./pages/WorkspaceTools/FeaturedListingDetail.jsx";
+import Language from "./pages/Language.jsx";
+import AppearanceScreen from "./pages/AppearanceScreen.jsx";
+import CRMPreferencesScreen from "./pages/CRMPreferencesScreen.jsx";
+import SignOutScreen from "./pages/SignOutScreen.jsx";
 
 export default function App() {
   return (
@@ -77,10 +99,8 @@ export default function App() {
           element={<NotificationAnalyticsScreen />}
         />
       </Route>
-
       {/* ── Users (no Layout wrapper) ── */}
       <Route path="/users" element={<AllUsers />} />
-
       {/* ── Members ── */}
       <Route path="/members" element={<ViewUser />} />
       <Route path="/members/:memberId" element={<MemberProfileScreen />} />
@@ -91,18 +111,51 @@ export default function App() {
       <Route path="/members/add" element={<AddMember />} />
       <Route path="/members/success" element={<MemberAdded />} />
       <Route path="/members/sendmessage" element={<SendWelcomeMessage />} />
-
       {/* ── Gyms ── */}
+      {/* Gym Routes */}
       <Route path="/gyms" element={<GymScreen />} />
+      <Route path="/gyms/add" element={<AddGymStep1 />} />
+      <Route path="/gyms/added/success" element={<PartnerAddedScreen />} />
       <Route path="/gyms/:gymId" element={<ViewGym />} />
-
+      <Route path="/gyms/:gymId/profile" element={<GymProfileScreen />} />
+      <Route path="/gyms/:gymId/plans" element={<MembershipPlansScreen />} />
+      <Route
+        path="/gyms/:gymId/plans/create"
+        element={<CreateMembershipPlanScreen />}
+      />
+      <Route path="/gyms/trainer" element={<GymTrainersScreen />} />
+      <Route path="/gyms/planpublish" element={<PlanPublishedScreen />} />
       {/* ── Trainers ── */}
       <Route path="/trainers" element={<Trainer />} />
       <Route path="/trainers/:trainerId" element={<ViewTrainer />} />
-
+      <Route path="/trainers/add" element={<AddTrainerFormScreen />} />
+      <Route path="/trainers/added/success" element={<TrainerAddedScreen />} />
       {/* ── Stores ── */}
       <Route path="/stores" element={<Store />} />
       <Route path="/stores/:storeId" element={<ViewStore />} />
+      <Route path="/stores/add" element={<AddStoreStep />} />
+      <Route path="/stores/added/success" element={<StoreAddedSucces />} />
+      {/* Reviews */}
+      <Route path="/review/list" element={<ContentReviewList />} />
+      <Route path="/review/:id/details" element={<ContentReviewDetail />} />
+      {/* WorkTools */}
+      <Route path="/worktools/" element={<ReportsAnalytics />} />
+      <Route path="/worktools/features/list" element={<FeaturedListings />} />
+      <Route
+        path="/worktools/features/list/:id"
+        element={<FeaturedListingDetail />}
+      />
+
+      {/* Partner */}
+      <Route path="/partner/directory/" element={<PartnerDirectory />} />
+      <Route
+        path="/partner/directory/:id/profile"
+        element={<PartnerProfile />}
+      />
+      <Route path="/setting/language" element={<Language />} />
+      <Route path="/setting/appearance" element={<AppearanceScreen />} />
+      <Route path="/setting/crm" element={<CRMPreferencesScreen />} />
+      <Route path="/setting/signout" element={<SignOutScreen />} />
     </Routes>
   );
 }
